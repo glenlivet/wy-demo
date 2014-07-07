@@ -1,0 +1,279 @@
+<html lang="en" ng-app><head>
+<title>WY电影网</title>
+<meta charset="utf-8"><!--   <meta charset="GB2312">   -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ngbf-w-mini">
+<meta name="author" content="NGBF">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/carousel.css" rel="stylesheet">
+<link href="assets/common/bootstrap.responsive.css" rel="stylesheet">
+<style type="text/css">
+	.center{
+		margin-left: auto !important;
+		margin-right: auto !important;
+		float:none !important;
+		display: block;
+		text-align:center;
+	}
+</style>
+</head>
+	<body>
+		<!-- header/bar栏 -->
+		<nav id="ngbf-header-bar" role="navigation" class="navbar-inverse navbar-fixed-top" style="height: 40px;"><div'><div class="container" style="height:40px;">
+		<ul id="header_bar_ul" class="nav nav-pills pull-left">
+		<li id="menubar_item_home" class="active"><a href="Index.html" onclick="onMenubarItemClick(&quot;home&quot;,&quot;home/index.html&quot;)">电影首页</a></li>
+		<li><a href="#">上映档期</a></li>
+		<li class="dropdown" id="menubar_item_m1"><a class="dropdown-toggle" data-toggle="dropdown" href="#">排  行 榜<b class="caret"></b></a>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+			<li><a href="#" onclick="onMenubarItemClick(&quot;m1&quot;,&quot;home/index.html&quot;)">热门影片</a></li>
+			<li><a href="#" onclick="onMenubarItemClick(&quot;m1&quot;,&quot;home/index.html&quot;)">好评影片</a></li>
+			<li><a href="#" onclick="onMenubarItemClick(&quot;m1&quot;,&quot;home/index.html&quot;)">最新影片</a></li>
+			</ul>
+		</li>
+		<li><a href="#about">网上购票</a></li>
+		</ul>
+		<div id="loginArea"><a class="pull-right" id="login_info" href="#" onclick="nj.auth.loginDialogShow()" style="margin-top:12px;"><font color="white">登录</font></a><div class="col-md-2 pull-right" style="vertical-align:middle;margin-top:5px;"><div class="input-group"><input type="text" class="form-control input-sm col-md-10" placeholder="search…"><span class="btn btn-default input-group-addon"><i class="glyphicon glyphicon-search"></i></span></div>&nbsp;&nbsp;</div></div>
+		
+		</div></div'></nav>
+		
+		
+		
+		
+		<!-- 登录对话框 -->
+		<div id="ngbf_login_dlg" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="login_label" aria-hidden="true">
+			<div class="modal-dialog" style="width:400px;padding-top: 50px;">
+    			<div class="modal-content">
+    				<div class="modal-header">
+    					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    					<h3>用户登录</h3>
+    				</div>
+    				<div class="modal-body">
+    						<form class="form-horizontal" method="post" role="form">
+    							<div class="form-group">
+    								<span for="login_username" class="col-sm-4 control-label">用户名</span>
+								    <div class="col-sm-6">
+								      <input id="login_username" type="text" placeholder="username" class="form-control">
+								    </div>
+								</div>
+								<div class="form-group">
+    								<span for="login_password" class="col-sm-4 control-label">密&nbsp;&nbsp;&nbsp;码</span>
+								    <div class="col-sm-6">
+								      <input id="login_password" type="password" placeholder="password" class="form-control">
+								    </div>
+			    				</div>
+    						</form>
+    						
+					  <div class="form-group">
+                          <label class="col-sm-4 control-label"></label>
+                             <div class="col-sm-6" style="color:red;height:100%;min-height:30px;" id="loginErrorMsg">
+                             </div>
+                      </div>
+    						
+    				</div>
+    				<div class="modal-footer">
+    					<button id="btn_login" class="btn btn-primary" onclick="nj.auth.doLogin()">登 录</button>
+    				</div>
+    			</div>
+    		</div>
+			
+			
+		</div>
+		
+		<!-- beginofwy -->
+	<div class="container">
+	
+		<!-- Carousel
+		================================================== -->
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		  </ol>
+		  <div class="carousel-inner">
+			<div class="item active">
+			  <img src="images/1.jpg" alt="First slide">
+			  <div class="container">
+				<div class="carousel-caption" >
+				  <h1>里约大冒险2</h1>
+				  <p>Rio 2 2014</p>
+				  <p><a class="btn btn-lg btn-primary" href="#" role="button">高清预告片</a></p>
+				</div>
+			  </div>
+			</div>
+			<div class="item">
+			  <img src="images/2.jpg" alt="Second slide">
+			  <div class="container">
+				<div class="carousel-caption">
+				  <h1>变形金刚4</h1>
+				  <p>3小时的视觉特效轰炸《变形金刚4：绝迹重生》6月27日中美同步上映 变形金刚4：绝迹重生</p>
+				  <p><a class="btn btn-lg btn-primary" href="#" role="button">高清预告片</a></p>
+				</div>
+			  </div>
+			</div>
+			<div class="item">
+			  <img src="images/3.jpg" alt="Third slide">
+			  <div class="container">
+				<div class="carousel-caption">
+				  <h1>采访</h1>
+				  <p>好基友付兰兰和塞斯·罗根《采访》金三胖10月10日北美上映</p>
+				  <p><a class="btn btn-lg btn-primary" href="#" role="button">高清预告片</a></p>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+		  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+		</div><!-- /.carousel -->
+			
+		<!--Panels begin--default:gray,success:green,info:blue,warning:orange,danger:pink-->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title"><div class="text-center">本周电影下载TOP10</div></h3>
+					</div>
+					<div class="panel-body" >
+						<div class="col-md-6">
+							<table class="table ">
+								<thead>
+								    <tr>
+										<th>排名</th>
+										<th>片名</th>
+										<th>类型</th>
+										<th>评分</th>
+								    </tr>
+								</thead>
+								<tbody ng-controller="Film">
+									<tr ng-repeat="film in films">
+										<td>{{film.No}}</td>
+										<td>{{film.Name}}</td>
+										<td>{{film.Type}}</td>
+										<td>{{film.Score}}</td>
+								    </tr>								  
+								</tbody>
+							</table>
+					    </div><!-- /.col-md-6-->
+						<div class="col-md-6">
+							<table class="table ">
+								<thead>
+								    <tr>
+										<th>排名</th>
+										<th>片名</th>
+										<th>类型</th>
+										<th>评分</th>
+								    </tr>
+								</thead>
+								<tbody ng-controller="Film">
+									<tr ng-repeat="film in films2">
+										<td>{{film.No}}</td>
+										<td>{{film.Name}}</td>
+										<td>{{film.Type}}</td>
+										<td>{{film.Score}}</td>
+								    </tr>								  
+								</tbody>
+							</table>
+					    </div><!-- /.col-md-6-->					
+					</div>
+			    </div>
+			</div>
+	    </div>
+		
+		
+		<!--Panels end-->
+		
+		<div class="row">
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+				  <img src="images/T1.jpg" alt="杨幂郭采洁闺蜜反目成仇">
+				  <div class="caption">
+					<h2>小时代3：刺金时代</h2>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;原本离开了姐妹们，准备和堕落的男友席城（姜潮 饰）离开上海的南湘重新回归到姐妹们身边。顾里率领众人搬进了新的别墅，大家继续着同一屋檐下的乌托邦生活。林萧、顾里陪同宫洺（锦荣 饰）参加罗马的时尚活动，......</p>
+					<p><a class="btn btn-default" href="#" role="button">More Details &raquo;</a></p>
+				  </div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+				  <img src="images/T2.jpg" alt="杨幂郭采洁闺蜜反目成仇">
+				  <div class="caption">
+					<h2>闺蜜</h2>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;《闺蜜》讲述的是由陈意涵饰演的希汶、薛凯琪饰演的Kimmy、杨子姗饰演的小美三个女孩之间20余年的闺蜜情。三个女孩年纪相仿，性格各异，希汶作为乖乖女，对人生有着自己的计划，希望28岁结婚，30岁生小孩............</p>
+					<p><a class="btn btn-default" href="#" role="button">More Details &raquo;</a></p>
+				  </div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+				  <img src="images/T3.jpg" alt="杨幂郭采洁闺蜜反目成仇">
+				  <div class="caption">
+					<h2>死亡邮件</h2>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;玖周刊摄影记者赵勇失踪不到一周，但是警方得到消息赵勇在几个月前早已死亡。与此同时与赵勇有关的杂志社同事陆续接到不知道谁发来的索命邮件，各种意外事件接踵而至防不胜防。越来越多的相关人员的离奇死亡，似乎为了掩盖不可告人的秘密......</p>
+					<p><a class="btn btn-default" href="#" role="button">More Details &raquo;</a></p>
+				  </div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+				  <img src="images/T4.jpg" alt="杨幂郭采洁闺蜜反目成仇">
+				  <div class="caption">
+					<h2>沉睡魔咒</h2>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;《沉睡魔咒》的故事聚焦于玛琳菲森，她曾是一个美丽纯洁，拥有翅膀能够飞翔的年轻仙子，生长于宁静祥和的森林王国。然而大好的时光总是短暂，森林王国突遭人类军队侵袭，玛琳菲森在战斗中成长为这片森林的守护者，同时......</p>
+					<p><a class="btn btn-default" href="#" role="button">More Details &raquo;</a></p>
+				  </div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+				  <img src="images/T5.jpg" alt="杨幂郭采洁闺蜜反目成仇">
+				  <div class="caption">
+					<h2>摩纳哥王妃</h2>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;1962年，格蕾丝（妮可．基德曼 饰）大婚已经有六年，她的一颦一笑已经成为20世纪王妃的经典影像，但此时，她正在力图使自己的过去与现在和解。她渴望重返大银幕，却因如今身兼三职——两个孩子的母亲、欧洲公国的王妃......</p>
+					<p><a class="btn btn-default" href="#" role="button">More Details &raquo;</a></p>
+				  </div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+				  <img src="images/T6.jpg" alt="杨幂郭采洁闺蜜反目成仇">
+				  <div class="caption">
+					<h2>章鱼哥</h2>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;驰名全球的预测帝章鱼保罗之子－－保罗二世，为弘扬父亲的正义精神，传承父亲的预测大业，冲破赌博集团对它的控制，多次逃脱追捕，来到中国学习预测祖师诸葛亮的预测术，在高考生水萌萌和金涛的帮助下......</p>
+					<p><a class="btn btn-default" href="#" role="button">More Details &raquo;</a></p>
+				  </div>
+				</div>
+			</div>
+		</div>	
+		
+		
+		
+		<!-- endofwy -->
+		
+		<!-- footer/bar栏 -->
+		<div id="ngbf-footer"><div class="row" align="center">
+		 版权所有 Sungard · 技术总部 · ngbf小组 · 王昀
+		
+		</div></div>
+	
+<script src="js/wyfilm.js"></script>     </script>
+<script src="js/angular.min.js"></script>     </script>	
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/docs.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="assets/common/ngbf-web.js"></script>
+<script src="ngbf-app.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+	nj.headmeta('demo');
+	nj.bar(napp.menuitems, 'home');
+	nj.footer();
+}
+</script>
+
+
+</body></html>

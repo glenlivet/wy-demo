@@ -1,0 +1,226 @@
+<!doctype html>
+<html ng-app>
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="../assets/common/bootstrap.responsive.css" rel="stylesheet">
+<style type="text/css">
+.center {
+	margin-left: auto !important;
+	margin-right: auto !important;
+	float: none !important;
+	display: block;
+	text-align: center;
+}
+
+.right {
+	text-align: left;
+}
+.modal-backdrop{
+	position:fixed;
+	top:0;
+	right:0;
+	left:0;
+	bottom:0;
+	z-index:0;
+	background-color:#000000;
+}
+</style>
+</head>
+
+<body>
+<nav id="ngbf-header-bar" role="navigation"></nav>
+	<div class="col-md-12">
+		<div class="container">
+			<div class="col-md-12" style="height: 55px"></div>
+		</div>
+
+		<!-- ad/top栏 -->
+		<div id="ngbf-ad-top" class="row col-md-11 center">
+
+			<!-- <div class="well pull-left" > -->
+
+			<div class="panel panel-default"
+				style="width: 100%; height: 100%;">
+				<div class="panel-heading"
+					style="background: #3080C0; height: 38px;">
+					<h3 class="panel-title text-left" id=title>
+						<strong><font color="white" size="2">Log日志信息</font></strong>
+					</h3>
+				</div>
+				<div class="panel-body" style="padding:0px;">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#job" data-toggle="tab">Job</a></li>
+						<li><a href="#login" data-toggle="tab">Login</a></li>
+						<li><a href="#rescode" data-toggle="tab">Rescode</a></li>
+						<li><a href="#common" data-toggle="tab">Common</a></li>
+						<li><a href="#group" data-toggle="tab">Group</a></li>
+						<li><a href="#profile" data-toggle="tab">Profile</a></li>
+					</ul>
+
+					<div class="tab-content" style="min-height:400px;height:100%;">
+						<div class="tab-pane fade in active" id="job" ng-controller="getJobTwitter">
+							<table class="table table-hover table-bordered table-striped" style="margin-bottom:0px;">
+								<thead>
+									<tr class="">
+										<td style="width: 20%; text-align: center;">名称</td>
+										<td style="width: 45%; text-align: center;">内容</td>
+										<td style="width: 15%; text-align: center;">类型</td>
+										<td style="width: 20%; text-align: center;">时间</td>
+										
+									</tr>
+								</thead>
+								<tbody id="profile_friend_list">
+									<tr ng-repeat="item in items">
+									 	<td style="text-align:left">{{item.account}}</td>
+									    <td style="text-align:left">{{item.twitter}}</td>
+									    <td style="text-align:left">{{item.type}}</td>
+									    <td style="text-align:left">{{item._tsi}}</td>
+									 </tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="tab-pane fade" id="login" ng-controller="getLoginTwitter">
+							<table class="table table-hover table-bordered" style="margin-bottom:0px;">
+								<thead>
+									<tr class="">
+										<td style="width: 20%; text-align: center;">名称</td>
+										<td style="width: 45%; text-align: center;">内容</td>
+										<td style="width: 15%; text-align: center;">类型</td>
+										<td style="width: 20%; text-align: center;">时间</td>
+										
+									</tr>
+								</thead>
+								<tbody id="profile_interest_list">
+									<tr ng-repeat="item in items">
+									 	<td style="text-align:left">{{item.account}}</td>
+									    <td style="text-align:left">{{item.twitter}}</td>
+									    <td style="text-align:left">{{item.type}}</td>
+									    <td style="text-align:left">{{item._tsi}}</td>
+									 </tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="tab-pane fade" id="rescode" ng-controller="getRescodeTwitter">
+							<table class="table table-hover table-bordered" style="margin-bottom:0px;">
+								<thead>
+									<tr class="">
+										<td style="width: 20%; text-align: center;">名称</td>
+										<td style="width: 45%; text-align: center;">内容</td>
+										<td style="width: 15%; text-align: center;">类型</td>
+										<td style="width: 20%; text-align: center;">时间</td>
+									</tr>
+								</thead>
+								<tbody id="profile_twitter_list">
+									<tr ng-repeat="item in items">
+									 	<td style="text-align:left">{{item.account}}</td>
+									    <td style="text-align:left">{{item.twitter}}</td>
+									    <td style="text-align:left">{{item.type}}</td>
+									    <td style="text-align:left">{{item._tsi}}</td>
+									 </tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="tab-pane fade" id="common" ng-controller="getCommonTwitter">
+							<table class="table table-hover table-bordered" style="margin-bottom:0px;">
+								<thead>
+									<tr class="">
+										<td style="width: 20%; text-align: center;">名称</td>
+										<td style="width: 45%; text-align: center;">内容</td>
+										<td style="width: 15%; text-align: center;">类型</td>
+										<td style="width: 20%; text-align: center;">时间</td>
+										
+									</tr>
+								</thead>
+								<tbody id="svncode_daily_list">
+									<tr ng-repeat="item in items">
+									 	<td style="text-align:left">{{item.account}}</td>
+									    <td style="text-align:left">{{item.twitter}}</td>
+									    <td style="text-align:left">{{item.type}}</td>
+									    <td style="text-align:left">{{item._tsi}}</td>
+									 </tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="tab-pane fade" id="group" ng-controller="getGroupTwitter">
+							<table class="table table-hover table-bordered" style="margin-bottom:0px;">
+								<thead>
+									<tr class="">
+										<td style="width: 20%; text-align: center;">名称</td>
+										<td style="width: 45%; text-align: center;">内容</td>
+										<td style="width: 15%; text-align: center;">类型</td>
+										<td style="width: 20%; text-align: center;">时间</td>
+										
+									</tr>
+								</thead>
+								<tbody id="svnfile_daily_list">
+									<tr ng-repeat="item in items">
+									 	<td style="text-align:left">{{item.account}}</td>
+									    <td style="text-align:left">{{item.twitter}}</td>
+									    <td style="text-align:left">{{item.type}}</td>
+									    <td style="text-align:left">{{item._tsi}}</td>
+									 </tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="tab-pane fade" id="profile" ng-controller="getProfileTwitter">
+							<table class="table table-hover table-bordered" style="margin-bottom:0px;">
+								<thead>
+									<tr class="">
+										<td style="width: 20%; text-align: center;">名称</td>
+										<td style="width: 45%; text-align: center;">内容</td>
+										<td style="width: 15%; text-align: center;">类型</td>
+										<td style="width: 20%; text-align: center;">时间</td>
+										
+									</tr>
+								</thead>
+								<tbody id="jiraissue_daily_list">
+									<tr ng-repeat="item in items">
+									 	<td style="text-align:left">{{item.account}}</td>
+									    <td style="text-align:left">{{item.twitter}}</td>
+									    <td style="text-align:left">{{item.type}}</td>
+									    <td style="text-align:left">{{item._tsi}}</td>
+									 </tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+
+<!-- 在页面底部加载JS，促进页面加载速度 -->
+<!-- jQuery & Bootstrap & Others -->
+<script src="js/assets/common/jquery.js"></script>
+<script src="js/jquery.jfeed.js"></script>
+<script src="js/jquery.storage.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<!-- RGraph & Plugin -->
+<script src="../assets/rgraph/RGraph.common.core.js"></script>
+<script src="../assets/rgraph/RGraph.common.dynamic.js"></script>
+<script src="../assets/rgraph/RGraph.common.tooltips.js"></script>
+<script src="../assets/rgraph/RGraph.common.effects.js"></script>
+<script src="../assets/rgraph/RGraph.pie.js"></script>
+<script src="../assets/rgraph/RGraph.line.js"></script>
+<script src="../assets/rgraph/RGraph.gantt.js"></script>
+<script src="../assets/rgraph/RGraph.common.key.js"></script>
+<script src="../assets/rgraph/RGraph.bar.js"></script>
+
+<!-- NGBF -->
+<script src="../assets/common/ngbf-web.js"></script>
+<script src="../ngbf-app.js"></script>
+<script src="../assets/common/angular.min.js"></script>
+<script src="../home/js/bootstrap-paginator.js"></script>
+<!-- HTML & JS 分离 -->
+<script src="log.js"></script>
+<script src="login.js"></script>
+</html>
